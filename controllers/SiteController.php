@@ -11,6 +11,7 @@ use app\models\ContactForm;
 use app\models\SiteContents;
 use app\models\Users;
 use app\models\Questions;
+use app\models\Scores;
 use yii\web\Response;
 
 class SiteController extends Controller
@@ -65,6 +66,16 @@ class SiteController extends Controller
         $content= SiteContents::find()->where(['name'=>'home'])->one();
         return $this->render('index',['content'=>$content]);
     }
+        public function actionFinish($id)
+    {
+        
+        $content= SiteContents::find()->where(['name'=>'felicidades'])->one();
+        $user=Users::find()->where(['id'=>$id])->one();
+        $score=Scores::find()->where(['user_id'=>$user->id])->one();
+        $questions_aux=Questions::find()->count();
+        $questions=Questions::find()->count();
+        return $this->render('finish',['content'=>$content,'user'=>$user,'questions'=>$questions,'score'=>$score]);
+    }
         public function actionAwards()
     {
         
@@ -95,9 +106,22 @@ class SiteController extends Controller
     }
     public function actionQuestions($id){
         $model=Questions::find()->all();
+         if (Yii::$app->request->post()) {
+            foreach($model as $question){
+                 $score+=$_POST["question_".$question->id];
+            }
+            $scores= New Scores();
+            $scores->user_id=$id;
+            $scores->score=$score;
+            $scores->date=date('Y-m-d H:i:s');;
+            if($scores->save()){
+             return $this->redirect(['finish','id' => $id]);   
+            }
+         }else{
         return $this->render('questions', [
                 'model' => $model,
             ]);
+    }
     }
     public function actionLogin()
     {
