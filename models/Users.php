@@ -14,6 +14,7 @@ use Yii;
  * @property string $phone
  * @property string $city
  * @property string $creation_date
+ * @property string $number_id
  *
  * @property Scores[] $scores
  */
@@ -33,11 +34,12 @@ class Users extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'last_name', 'email', 'phone', 'city', 'creation_date'], 'required'],
+            [['name', 'last_name', 'email', 'phone', 'city', 'creation_date', 'number_id'], 'required'],
             [['creation_date'], 'safe'],
             [['name', 'last_name', 'email'], 'string', 'max' => 100],
             [['phone'], 'string', 'max' => 30],
-            [['city'], 'string', 'max' => 50]
+            [['city'], 'string', 'max' => 50],
+            [['number_id'], 'string', 'max' => 10]
         ];
     }
 
@@ -54,6 +56,7 @@ class Users extends \yii\db\ActiveRecord
             'phone' => 'Phone',
             'city' => 'City',
             'creation_date' => 'Creation Date',
+            'number_id' => 'Number ID',
         ];
     }
 
