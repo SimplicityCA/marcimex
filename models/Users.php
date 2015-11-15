@@ -14,6 +14,8 @@ use Yii;
  * @property string $phone
  * @property string $city
  * @property string $creation_date
+ *
+ * @property Scores[] $scores
  */
 class Users extends \yii\db\ActiveRecord
 {
@@ -53,5 +55,13 @@ class Users extends \yii\db\ActiveRecord
             'city' => 'City',
             'creation_date' => 'Creation Date',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getScores()
+    {
+        return $this->hasMany(Scores::className(), ['user_id' => 'id']);
     }
 }
