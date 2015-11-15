@@ -10,6 +10,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\SiteContents;
 use app\models\Users;
+use app\models\Questions;
 use yii\web\Response;
 
 class SiteController extends Controller
@@ -93,7 +94,10 @@ class SiteController extends Controller
         }
     }
     public function actionQuestions($id){
-
+        $model=Questions::find()->all();
+        return $this->render('questions', [
+                'model' => $model,
+            ]);
     }
     public function actionLogin()
     {
