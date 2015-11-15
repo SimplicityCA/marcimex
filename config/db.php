@@ -2,8 +2,8 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
-    'username' => 'root',
-    'password' => '',
+    'dsn' => 'mysql:host=simplicityuniverse.com;dbname=simplja3_trivmarcimex',
+    'username' => 'simplja3_dba',
+    'password' => '$implicitydba2015',
     'charset' => 'utf8',
 ];
