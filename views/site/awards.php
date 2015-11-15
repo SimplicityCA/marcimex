@@ -3,7 +3,6 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 
 $this->title = $content->name;
-
 ?>
 <div class="site-index">
 
@@ -17,8 +16,8 @@ $this->title = $content->name;
 
                 <p><?= $content->content ?></p>
 
-            <p><a class="btn btn-default" href="<?= Url::to(['site/awards']) ?>">Premios</a></p>
-            <p><a class="btn btn-default" href="<?= Url::to(['site/awards']) ?>">Empezar</a></p>
+            
+            <p><a class="btn btn-default" href="<?= Url::to(['site/user']) ?>">Empezar</a></p>
           
             </div>
 

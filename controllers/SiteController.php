@@ -8,6 +8,9 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\SiteContents;
+use app\models\Users;
+use yii\web\Response;
 
 class SiteController extends Controller
 {
@@ -46,12 +49,41 @@ class SiteController extends Controller
             ],
         ];
     }
-
+    public function actionFind(){
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        if(isset($_POST['number_id'])){
+           $user=Users::find()->where(['number_id'=>$_POST['number_id']])->one(); 
+           return ['user' => $user];
+        }else{
+            echo "no post";
+        }
+    }
     public function actionIndex()
     {
-        return $this->render('index');
+        
+        $content= SiteContents::find()->where(['name'=>'home'])->one();
+        return $this->render('index',['content'=>$content]);
     }
+        public function actionAwards()
+    {
+        
+        $content= SiteContents::find()->where(['name'=>'premios'])->one();
+        return $this->render('awards',['content'=>$content]);
+    }
+    public function actionUser(){
+             $model = new Users();
+             $model->creation_date= date('Y-m-d H:i:s');
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['questions', 'id' => $model->id]);
+        } else {
+            return $this->render('user', [
+                'model' => $model,
+            ]);
+        }
+    }
+    public function actionQuestions($id){
 
+    }
     public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {

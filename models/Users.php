@@ -38,8 +38,11 @@ class Users extends \yii\db\ActiveRecord
             [['creation_date'], 'safe'],
             [['name', 'last_name', 'email'], 'string', 'max' => 100],
             [['phone'], 'string', 'max' => 30],
+            [['email'], 'email', 'message'=>'{attribute} inválido'],
             [['city'], 'string', 'max' => 50],
-            [['number_id'], 'string', 'max' => 10]
+            [['number_id'], 'string', 'max' => 10, 'min'=>10],
+           //[['number_id'], 'match', 'pattern' => '/^[0-9]/', 'message'=>'{attribute} solo se acepta números'],
+            [['number_id','phone'], 'number', 'message'=>'{attribute} solo se acepta números'],
         ];
     }
 
@@ -50,13 +53,13 @@ class Users extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'last_name' => 'Last Name',
+            'name' => 'Nombres',
+            'last_name' => 'Apellidos',
             'email' => 'Email',
-            'phone' => 'Phone',
-            'city' => 'City',
+            'phone' => 'Teléfono',
+            'city' => 'Ciudad',
             'creation_date' => 'Creation Date',
-            'number_id' => 'Number ID',
+            'number_id' => 'Cédula de identidad',
         ];
     }
 
