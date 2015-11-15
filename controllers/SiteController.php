@@ -73,8 +73,19 @@ class SiteController extends Controller
     public function actionUser(){
              $model = new Users();
              $model->creation_date= date('Y-m-d H:i:s');
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if (Yii::$app->request->post()) {
+            if($_POST['action']=='UPDATE'){
+                $model=Users::find()->where(['number_id'=>$_POST['Users']['number_id']])->one();
+                
+            }
+                 if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['questions', 'id' => $model->id]);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        }
+      
         } else {
             return $this->render('user', [
                 'model' => $model,

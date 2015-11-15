@@ -22,6 +22,7 @@ $('#users-number_id').change(function(){
         $('#users-email').val(data.user.email);
         $('#users-phone').val(data.user.phone);
         $('#users-city').val(data.user.city);
+        $('#action').val('UPDATE');
     }else{
 
     }
@@ -52,7 +53,7 @@ $this->registerJs($script,View::POS_END);
     <?= $form->field($model, 'city')->textInput(['maxlength' => true]) ?>
 
    
-
+<input type="hidden" id="action" name="action" value="CREATE"/>
 
 
     <div class="form-group">
