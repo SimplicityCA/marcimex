@@ -9,6 +9,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\SiteContents;
+use app\models\SiteImages;
 use app\models\Users;
 use app\models\Questions;
 use app\models\Scores;
@@ -64,25 +65,28 @@ class SiteController extends Controller
     {
         
         $content= SiteContents::find()->where(['name'=>'home'])->one();
-        return $this->render('index',['content'=>$content]);
+        $background=SiteImages::find()->where(['name'=>'home'])->one();
+        return $this->render('index',['content'=>$content,'background'=>'background']);
     }
         public function actionFinish($id)
     {
         
+        $background=SiteImages::find()->where(['name'=>'felicidades'])->one();
         $content= SiteContents::find()->where(['name'=>'felicidades'])->one();
         $user=Users::find()->where(['id'=>$id])->one();
         $score=Scores::find()->where(['user_id'=>$user->id])->one();
         $questions_aux=Questions::find()->count();
         $questions=Questions::find()->count();
-        return $this->render('finish',['content'=>$content,'user'=>$user,'questions'=>$questions,'score'=>$score]);
+        return $this->render('finish',['content'=>$content,'user'=>$user,'questions'=>$questions,'score'=>$score,'background'=>$background]);
     }
         public function actionAwards()
     {
-        
+        $background=SiteImages::find()->where(['name'=>'premios'])->one();
         $content= SiteContents::find()->where(['name'=>'premios'])->one();
-        return $this->render('awards',['content'=>$content]);
+        return $this->render('awards',['content'=>$content,'background'=>$background]);
     }
     public function actionUser(){
+            $background=SiteImages::find()->where(['name'=>'formulario'])->one();
              $model = new Users();
              $model->creation_date= date('Y-m-d H:i:s');
         if (Yii::$app->request->post()) {
@@ -94,17 +98,18 @@ class SiteController extends Controller
             return $this->redirect(['questions', 'id' => $model->id]);
         } else {
             return $this->render('create', [
-                'model' => $model,
+                'model' => $model, 'background'=>$background
             ]);
         }
       
         } else {
             return $this->render('user', [
-                'model' => $model,
+                'model' => $model, 'background' => $background
             ]);
         }
     }
     public function actionQuestions($id){
+        $background=SiteImages::find()->where(['name'=>'preguntas'])->one();
         $model=Questions::find()->all();
          if (Yii::$app->request->post()) {
             foreach($model as $question){
@@ -119,7 +124,7 @@ class SiteController extends Controller
             }
          }else{
         return $this->render('questions', [
-                'model' => $model,
+                'model' => $model, 'background' => $background
             ]);
     }
     }
