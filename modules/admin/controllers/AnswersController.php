@@ -1,19 +1,20 @@
 <?php
 
-namespace app\controllers;
+namespace app\modules\admin\controllers;
 
 use Yii;
-use app\models\AdminUsers;
-use app\models\AdminUsersSearch;
+use app\models\Answers;
+use app\models\AnswersSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * AdminUsersController implements the CRUD actions for AdminUsers model.
+ * AnswersController implements the CRUD actions for Answers model.
  */
-class AdminUsersController extends Controller
+class AnswersController extends Controller
 {
+     public $layout='@app/views/layouts/admin';
     public function behaviors()
     {
         return [
@@ -27,12 +28,12 @@ class AdminUsersController extends Controller
     }
 
     /**
-     * Lists all AdminUsers models.
+     * Lists all Answers models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new AdminUsersSearch();
+        $searchModel = new AnswersSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +43,7 @@ class AdminUsersController extends Controller
     }
 
     /**
-     * Displays a single AdminUsers model.
+     * Displays a single Answers model.
      * @param integer $id
      * @return mixed
      */
@@ -54,13 +55,13 @@ class AdminUsersController extends Controller
     }
 
     /**
-     * Creates a new AdminUsers model.
+     * Creates a new Answers model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new AdminUsers();
+        $model = new Answers();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,7 +73,7 @@ class AdminUsersController extends Controller
     }
 
     /**
-     * Updates an existing AdminUsers model.
+     * Updates an existing Answers model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,7 +92,7 @@ class AdminUsersController extends Controller
     }
 
     /**
-     * Deletes an existing AdminUsers model.
+     * Deletes an existing Answers model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +105,15 @@ class AdminUsersController extends Controller
     }
 
     /**
-     * Finds the AdminUsers model based on its primary key value.
+     * Finds the Answers model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return AdminUsers the loaded model
+     * @return Answers the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = AdminUsers::findOne($id)) !== null) {
+        if (($model = Answers::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

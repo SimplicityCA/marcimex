@@ -1,19 +1,20 @@
 <?php
 
-namespace app\controllers;
+namespace app\modules\admin\controllers;
 
 use Yii;
-use app\models\Scores;
-use app\models\ScoresSearch;
+use app\models\SiteImages;
+use app\models\SiteImagesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ScoresController implements the CRUD actions for Scores model.
+ * SiteImagesController implements the CRUD actions for SiteImages model.
  */
-class ScoresController extends Controller
+class SiteimagesController extends Controller
 {
+     public $layout='@app/views/layouts/admin';
     public function behaviors()
     {
         return [
@@ -27,12 +28,12 @@ class ScoresController extends Controller
     }
 
     /**
-     * Lists all Scores models.
+     * Lists all SiteImages models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ScoresSearch();
+        $searchModel = new SiteImagesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +43,7 @@ class ScoresController extends Controller
     }
 
     /**
-     * Displays a single Scores model.
+     * Displays a single SiteImages model.
      * @param integer $id
      * @return mixed
      */
@@ -54,13 +55,13 @@ class ScoresController extends Controller
     }
 
     /**
-     * Creates a new Scores model.
+     * Creates a new SiteImages model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Scores();
+        $model = new SiteImages();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,7 +73,7 @@ class ScoresController extends Controller
     }
 
     /**
-     * Updates an existing Scores model.
+     * Updates an existing SiteImages model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,7 +92,7 @@ class ScoresController extends Controller
     }
 
     /**
-     * Deletes an existing Scores model.
+     * Deletes an existing SiteImages model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +105,15 @@ class ScoresController extends Controller
     }
 
     /**
-     * Finds the Scores model based on its primary key value.
+     * Finds the SiteImages model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Scores the loaded model
+     * @return SiteImages the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Scores::findOne($id)) !== null) {
+        if (($model = SiteImages::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

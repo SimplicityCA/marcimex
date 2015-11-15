@@ -1,19 +1,20 @@
 <?php
 
-namespace app\controllers;
+namespace app\modules\admin\controllers;
 
 use Yii;
-use app\models\Answers;
-use app\models\AnswersSearch;
+use app\models\Scores;
+use app\models\ScoresSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * AnswersController implements the CRUD actions for Answers model.
+ * ScoresController implements the CRUD actions for Scores model.
  */
-class AnswersController extends Controller
+class ScoresController extends Controller
 {
+     public $layout='@app/views/layouts/admin';
     public function behaviors()
     {
         return [
@@ -27,12 +28,12 @@ class AnswersController extends Controller
     }
 
     /**
-     * Lists all Answers models.
+     * Lists all Scores models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new AnswersSearch();
+        $searchModel = new ScoresSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +43,7 @@ class AnswersController extends Controller
     }
 
     /**
-     * Displays a single Answers model.
+     * Displays a single Scores model.
      * @param integer $id
      * @return mixed
      */
@@ -54,13 +55,13 @@ class AnswersController extends Controller
     }
 
     /**
-     * Creates a new Answers model.
+     * Creates a new Scores model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Answers();
+        $model = new Scores();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,7 +73,7 @@ class AnswersController extends Controller
     }
 
     /**
-     * Updates an existing Answers model.
+     * Updates an existing Scores model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,7 +92,7 @@ class AnswersController extends Controller
     }
 
     /**
-     * Deletes an existing Answers model.
+     * Deletes an existing Scores model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +105,15 @@ class AnswersController extends Controller
     }
 
     /**
-     * Finds the Answers model based on its primary key value.
+     * Finds the Scores model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Answers the loaded model
+     * @return Scores the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Answers::findOne($id)) !== null) {
+        if (($model = Scores::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

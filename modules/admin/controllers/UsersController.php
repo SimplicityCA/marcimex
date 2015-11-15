@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers;
+namespace app\modules\admin\controllers;
 
 use Yii;
 use app\models\Users;
@@ -14,6 +14,7 @@ use yii\filters\VerbFilter;
  */
 class UsersController extends Controller
 {
+     public $layout='@app/views/layouts/admin';
     public function behaviors()
     {
         return [

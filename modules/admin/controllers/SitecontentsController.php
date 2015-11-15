@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers;
+namespace app\modules\admin\controllers;
 
 use Yii;
 use app\models\SiteContents;
@@ -12,8 +12,9 @@ use yii\filters\VerbFilter;
 /**
  * SiteContentsController implements the CRUD actions for SiteContents model.
  */
-class SiteContentsController extends Controller
+class SitecontentsController extends Controller
 {
+     public $layout='@app/views/layouts/admin';
     public function behaviors()
     {
         return [

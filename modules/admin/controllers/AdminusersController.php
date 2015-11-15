@@ -1,19 +1,20 @@
 <?php
 
-namespace app\controllers;
+namespace app\modules\admin\controllers;
 
 use Yii;
-use app\models\SiteImages;
-use app\models\SiteImagesSearch;
+use app\models\AdminUsers;
+use app\models\AdminUsersSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SiteImagesController implements the CRUD actions for SiteImages model.
+ * AdminUsersController implements the CRUD actions for AdminUsers model.
  */
-class SiteImagesController extends Controller
+class AdminusersController extends Controller
 {
+     public $layout='@app/views/layouts/admin';
     public function behaviors()
     {
         return [
@@ -27,12 +28,12 @@ class SiteImagesController extends Controller
     }
 
     /**
-     * Lists all SiteImages models.
+     * Lists all AdminUsers models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SiteImagesSearch();
+        $searchModel = new AdminUsersSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +43,7 @@ class SiteImagesController extends Controller
     }
 
     /**
-     * Displays a single SiteImages model.
+     * Displays a single AdminUsers model.
      * @param integer $id
      * @return mixed
      */
@@ -54,13 +55,13 @@ class SiteImagesController extends Controller
     }
 
     /**
-     * Creates a new SiteImages model.
+     * Creates a new AdminUsers model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new SiteImages();
+        $model = new AdminUsers();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,7 +73,7 @@ class SiteImagesController extends Controller
     }
 
     /**
-     * Updates an existing SiteImages model.
+     * Updates an existing AdminUsers model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,7 +92,7 @@ class SiteImagesController extends Controller
     }
 
     /**
-     * Deletes an existing SiteImages model.
+     * Deletes an existing AdminUsers model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,15 +105,15 @@ class SiteImagesController extends Controller
     }
 
     /**
-     * Finds the SiteImages model based on its primary key value.
+     * Finds the AdminUsers model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return SiteImages the loaded model
+     * @return AdminUsers the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = SiteImages::findOne($id)) !== null) {
+        if (($model = AdminUsers::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
