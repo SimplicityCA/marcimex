@@ -74,7 +74,7 @@ class SiteController extends Controller
         $background=SiteImages::find()->where(['name'=>'felicidades'])->one();
         $content= SiteContents::find()->where(['name'=>'felicidades'])->one();
         $user=Users::find()->where(['id'=>$id])->one();
-        $score=Scores::find()->where(['user_id'=>$user->id])->one();
+        $score=Scores::find()->where(['user_id'=>$user->id]) ->orderBy(['date'=>SORT_DESC])->one();
         $questions_aux=Questions::find()->count();
         $questions=Questions::find()->count();
         return $this->render('finish',['content'=>$content,'user'=>$user,'questions'=>$questions,'score'=>$score,'background'=>$background]);
