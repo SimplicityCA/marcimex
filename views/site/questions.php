@@ -7,18 +7,23 @@ use yii\widgets\ActiveForm;
 $this->title = 'Preguntas';
 $script=<<< JS
 $('.next').click(function() {
-	var id= $(this).attr('id_question');
+		var id= $(this).attr('id_question');
 	var next= parseInt(id)+1;
 	var name = "question_"+id;
-	var hidden="#answer_of_question_"+id;
-	var container="#question_container_"+id;
+	var answer=$('input[name="'+name+'"]:checked').val();
+		var hidden="#answer_of_question_"+id;
+		var container="#question_container_"+id;
 	var container_next="#question_container_"+next;
-var answer=$('input[name="'+name+'"]:checked').val();
+		//alert($(hidden).val());
+	if($(hidden).val()!='no'){
+
+
+	
 $(hidden).val(answer);
-if($(hidden).val()!='null'){
+
 $(container).hide();
 $(container_next).show();
-}
+}else{alert('Selecciona una opción')}
 });
 JS;
 $this->registerJs($script,View::POS_END);
@@ -41,7 +46,7 @@ $this->registerJs($script,View::POS_END);
 
         	</div>
         	<a id="button_question_<?= $question->id ?>" id_question="<?= $question->id ?>" class="next" href="#">Siguiente</a>
-        	<input type="hidden" id="answer_of_question_<?= $question->id ?>" value="null" />
+        	<input type="hidden" id="answer_of_question_<?= $question->id ?>" value="no" />
         </div>
         <?php }else{ ?>
         <div id="question_container_<?= $question->id ?>" style="display:none">
@@ -53,7 +58,7 @@ $this->registerJs($script,View::POS_END);
 
         	</div>
         	<a id="button_question_<?= $question->id ?>" id_question="<?= $question->id ?>" class="next" href="#">Siguiente</a>
-        	<input type="hidden" id="answer_of_question_<?= $question->id ?>" value="null" />
+        	<input type="hidden" id="answer_of_question_<?= $question->id ?>" value="no" />
         </div>
         <?php } ?>
     	<?php endforeach; ?>
