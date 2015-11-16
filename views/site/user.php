@@ -38,6 +38,7 @@ $this->registerJs($script,View::POS_END);
 ?>
 
 <div class="users-form">
+<img style="float:left" src="<?= Url::base() ?>/images/<?= $principal_formulario->image_desktop ?>"/>
 
     <?php $form = ActiveForm::begin(); ?>
     <?= $form->field($model, 'number_id')->textInput(['maxlength' => true]) ?>
@@ -54,7 +55,7 @@ $this->registerJs($script,View::POS_END);
 
    
 <input type="hidden" id="action" name="action" value="CREATE"/>
-
+<img style="float:left" src="<?= Url::base() ?>/images/<?= $btn_continuar->image_desktop ?>"/>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

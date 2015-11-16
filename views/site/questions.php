@@ -72,8 +72,12 @@ $this->registerJs($script,View::POS_END);
         </div>
         <?php } ?>
     	<?php endforeach; ?>
-    	<div id="question_container_<?= count($model)+1 ?>" style="display:none;"> </div>
-
+<img style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta1->image_desktop ?>"/>
+<img style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta2->image_desktop ?>"/>
+<img style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta3->image_desktop ?>"/>
+<img style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta4->image_desktop ?>"/>
+<img style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta5->image_desktop ?>"/>
+<img style="float:left" src="<?= Url::base() ?>/images/<?= $btn_siguiente->image_desktop ?>"/>
         </div>
     <?php ActiveForm::end(); ?>
     </div>

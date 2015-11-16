@@ -15,7 +15,8 @@ $this->title = $content->name;
               
 
                 <p><?= $content->content ?></p>
-
+                <img src="<?= Url::base() ?>/images/<?= $premios->image_desktop ?>"/>
+         <img src="<?= Url::base() ?>/images/<?= $btn_empezar->image_desktop ?>"/>
             
             <p><a class="btn btn-default" href="<?= Url::to(['site/user']) ?>">Empezar</a></p>
           

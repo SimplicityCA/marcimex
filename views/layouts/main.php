@@ -4,11 +4,14 @@
 /* @var $content string */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
-
+use app\models\SiteImages;
+$background=SiteImages::find()->where(['name'=>'background'])->one();
+$logo=SiteImages::find()->where(['name'=>'logo'])->one();
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -51,10 +54,11 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
-    <div class="container">
+    <div class="container" style="background-image: url('<?= Url::base() ?>/images/back.jpg');">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
+        <img src="<?= Url::base() ?>/images/logo_felicidades.png"/>
         <?= $content ?>
     </div>
 </div>

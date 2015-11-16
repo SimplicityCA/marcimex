@@ -21,7 +21,8 @@ $this->title = $content->name;
 
            
             <p><a class="btn btn-default" href="<?= Url::to(['site/user']) ?>">Volver a Jugar</a></p>
-          
+          <img style="float:left" src="<?= Url::base() ?>/images/<?= $principal_felicidades->image_desktop ?>"/>
+          <img style="float:left" src="<?= Url::base() ?>/images/<?= $btn_volverjugar->image_desktop ?>"/>
             </div>
 
         </div>

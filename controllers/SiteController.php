@@ -64,29 +64,37 @@ class SiteController extends Controller
     public function actionIndex()
     {
         
-        $content= SiteContents::find()->where(['name'=>'home'])->one();
-        $background=SiteImages::find()->where(['name'=>'home'])->one();
-        return $this->render('index',['content'=>$content,'background'=>'background']);
+        $content1= SiteContents::find()->where(['name'=>'home'])->one();
+        $content2= SiteContents::find()->where(['name'=>'home2'])->one();
+        $principal_home =SiteImages::find()->where(['name'=>'principal home'])->one();
+        $separador=SiteImages::find()->where(['name'=>'separador home'])->one();
+        $btn_premios=SiteImages::find()->where(['name'=>'boton premios'])->one();
+        $btn_empezar=SiteImages::find()->where(['name'=>'boton empezar'])->one();
+        return $this->render('index',['content1'=>$content1,'content2'=>$content2,'separador'=>$separador,'principal_home'=>$principal_home,'btn_premios'=>$btn_premios,'btn_empezar'=>$btn_empezar]);
     }
         public function actionFinish($id)
     {
         
-        $background=SiteImages::find()->where(['name'=>'felicidades'])->one();
+        $principal_felicidades=SiteImages::find()->where(['name'=>'principal felicidades'])->one();
+        $btn_volverjugar=SiteImages::find()->where(['name'=>'boton volver jugar'])->one();
         $content= SiteContents::find()->where(['name'=>'felicidades'])->one();
         $user=Users::find()->where(['id'=>$id])->one();
         $score=Scores::find()->where(['user_id'=>$user->id]) ->orderBy(['date'=>SORT_DESC])->one();
         $questions_aux=Questions::find()->count();
         $questions=Questions::find()->count();
-        return $this->render('finish',['content'=>$content,'user'=>$user,'questions'=>$questions,'score'=>$score,'background'=>$background]);
+        return $this->render('finish',['content'=>$content,'user'=>$user,'questions'=>$questions,'score'=>$score,'principal_felicidades'=>$principal_felicidades,'btn_volverjugar'=>$btn_volverjugar]);
     }
         public function actionAwards()
     {
-        $background=SiteImages::find()->where(['name'=>'premios'])->one();
+        $premios=SiteImages::find()->where(['name'=>'premios'])->one();
+        $btn_empezar=SiteImages::find()->where(['name'=>'boton empezar'])->one();
         $content= SiteContents::find()->where(['name'=>'premios'])->one();
-        return $this->render('awards',['content'=>$content,'background'=>$background]);
+        return $this->render('awards',['content'=>$content,'premios'=>$premios]);
     }
     public function actionUser(){
-            $background=SiteImages::find()->where(['name'=>'formulario'])->one();
+            $principal_formulario =SiteImages::find()->where(['name'=>'principal formulario'])->one();
+            $btn_continuar=SiteImages::find()->where(['name'=>'boton continuar'])->one();
+            //$background=SiteImages::find()->where(['name'=>'formulario'])->one();
              $model = new Users();
              $model->creation_date= date('Y-m-d H:i:s');
         if (Yii::$app->request->post()) {
@@ -98,18 +106,25 @@ class SiteController extends Controller
             return $this->redirect(['questions', 'id' => $model->id]);
         } else {
             return $this->render('create', [
-                'model' => $model, 'background'=>$background
+                'model' => $model, 'principal_formulario'=>$principal_formulario
             ]);
         }
       
         } else {
             return $this->render('user', [
-                'model' => $model, 'background' => $background
+                'model' => $model, 'principal_formulario' => $principal_formulario,'btn_continuar'=>$btn_continuar
             ]);
         }
     }
     public function actionQuestions($id){
-        $background=SiteImages::find()->where(['name'=>'preguntas'])->one();
+    
+                $pregunta1=SiteImages::find()->where(['name'=>'pregunta1'])->one();
+                $pregunta2=SiteImages::find()->where(['name'=>'pregunta2'])->one();
+                $pregunta3=SiteImages::find()->where(['name'=>'pregunta3'])->one();
+                $pregunta4=SiteImages::find()->where(['name'=>'pregunta4'])->one();
+                $pregunta5=SiteImages::find()->where(['name'=>'pregunta5'])->one();
+       
+        $btn_siguiente=SiteImages::find()->where(['name'=>'boton siguiente'])->one();
         $model=Questions::find()->all();
          if (Yii::$app->request->post()) {
             foreach($model as $question){
@@ -124,7 +139,7 @@ class SiteController extends Controller
             }
          }else{
         return $this->render('questions', [
-                'model' => $model, 'background' => $background
+                'model' => $model, 'pregunta1' => $pregunta1, 'pregunta2' => $pregunta2, 'pregunta3' => $pregunta3, 'pregunta4' => $pregunta4, 'pregunta5' => $pregunta5,'btn_siguiente'=>$btn_siguiente
             ]);
     }
     }
