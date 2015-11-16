@@ -19,8 +19,8 @@ $this->title = $content->name;
                 <p><?= $user->name ?></p>
                 <p>Acertaste <?=$score->score ?> de <?=$questions?></p>
 
-            <p><a class="btn btn-default" href="<?= Url::to(['site/awards']) ?>">Premios</a></p>
-            <p><a class="btn btn-default" href="<?= Url::to(['site/awards']) ?>">Empezar</a></p>
+           
+            <p><a class="btn btn-default" href="<?= Url::to(['site/user']) ?>">Volver a Jugar</a></p>
           
             </div>
 
