@@ -59,13 +59,20 @@ $this->registerJs($script,View::POS_END);
         		<input type="radio" name="question_<?= $question->id ?>" value="<?= $answer->correct ?>"><?= $answer->content ?><br>
         		<?php endforeach; ?>
 
-        	</div>
-        	<a id="button_question_<?= $question->id ?>" id_question="<?= $question->id ?>" class="next" href="#">Siguiente</a>
+        	</div> 
+        	<?php if($k+1==count($model)){ ?>
+  
+        	 <input type="submit" value="Finalizar">
+        	<?php }else{ ?>
+			<a id="button_question_<?= $question->id ?>" id_question="<?= $question->id ?>" class="next" href="#">Siguiente</a>
+        	<?php } ?>
         	<input type="hidden" id="answer_of_question_<?= $question->id ?>" value="no" />
+        	
+        	
         </div>
         <?php } ?>
     	<?php endforeach; ?>
-    	<div id="question_container_<?= count($model)+1 ?>" style="display:none;"> <input type="submit" value="Finalizar"></div>
+    	<div id="question_container_<?= count($model)+1 ?>" style="display:none;"> </div>
 
         </div>
     <?php ActiveForm::end(); ?>
