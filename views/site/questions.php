@@ -11,16 +11,19 @@ $('.next').click(function() {
 	var next= parseInt(id)+1;
 	var name = "question_"+id;
 	var answer=$('input[name="'+name+'"]:checked').val();
+
 		var hidden="#answer_of_question_"+id;
 		var container="#question_container_"+id;
 	var container_next="#question_container_"+next;
+	if(answer)
+	$(hidden).val(answer);
 		//alert($(hidden).val());
 	if($(hidden).val()!='no'){
 
 
 	
-$(hidden).val(answer);
 
+	
 $(container).hide();
 $(container_next).show();
 }else{alert('Selecciona una opción')}
