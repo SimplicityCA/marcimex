@@ -72,11 +72,11 @@ $this->registerJs($script,View::POS_END);
         </div>
         <?php } ?>
     	<?php endforeach; ?>
-<img style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta1->image_desktop ?>"/>
-<img style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta2->image_desktop ?>"/>
-<img style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta3->image_desktop ?>"/>
-<img style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta4->image_desktop ?>"/>
-<img style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta5->image_desktop ?>"/>
+<img id="img_<?= $pregunta1->name ?>" style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta1->image_desktop ?>"/>
+<img id="img_<?= $pregunta2->name ?>" style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta2->image_desktop ?>"/>
+<img id="img_<?= $pregunta3->name ?>" style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta3->image_desktop ?>"/>
+<img id="img_<?= $pregunta4->name ?>" style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta4->image_desktop ?>"/>
+<img id="img_<?= $pregunta5->name ?>" style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta5->image_desktop ?>"/>
 <img style="float:left" src="<?= Url::base() ?>/images/<?= $btn_siguiente->image_desktop ?>"/>
         </div>
     <?php ActiveForm::end(); ?>

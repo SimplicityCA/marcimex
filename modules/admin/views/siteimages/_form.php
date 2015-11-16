@@ -10,13 +10,13 @@ use yii\widgets\ActiveForm;
 
 <div class="site-images-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'image_desktop')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'image_desktop')->fileInput() ?>
 
-    <?= $form->field($model, 'image_mobile')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'image_mobile')->fileInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

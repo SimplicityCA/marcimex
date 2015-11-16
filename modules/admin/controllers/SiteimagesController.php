@@ -8,7 +8,8 @@ use app\models\SiteImagesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\filters\AccessControl;
+use yii\web\UploadedFile;
 /**
  * SiteImagesController implements the CRUD actions for SiteImages model.
  */
@@ -18,6 +19,17 @@ class SiteimagesController extends Controller
     public function behaviors()
     {
         return [
+                        'access' => [
+                'class' => AccessControl::className(),
+                //'only' => ['logout'],
+                'rules' => [
+                    [
+                        'actions' => ['index','create','update','delete','admin','view','findModel'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -63,8 +75,20 @@ class SiteimagesController extends Controller
     {
         $model = new SiteImages();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if (Yii::$app->request->isPost) {
+            $model->load(Yii::$app->request->post());
+            $model->image_desktop = UploadedFile::getInstance($model, 'image_desktop');
+            $model->image_mobile = UploadedFile::getInstance($model, 'image_mobile');
+             $model->image_desktop->saveAs('images/' . $model->image_desktop->baseName . '.' . $model->image_desktop->extension);
+             $model->image_mobile->saveAs('images/' . $model->image_mobile->baseName . '.' . $model->image_mobile->extension);
+           
+            if($model->save()){
             return $this->redirect(['view', 'id' => $model->id]);
+            }else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        }
         } else {
             return $this->render('create', [
                 'model' => $model,

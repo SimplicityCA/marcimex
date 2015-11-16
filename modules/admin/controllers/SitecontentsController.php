@@ -8,7 +8,7 @@ use app\models\SiteContentsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\filters\AccessControl;
 /**
  * SiteContentsController implements the CRUD actions for SiteContents model.
  */
@@ -18,6 +18,17 @@ class SitecontentsController extends Controller
     public function behaviors()
     {
         return [
+                        'access' => [
+                'class' => AccessControl::className(),
+                //'only' => ['logout'],
+                'rules' => [
+                    [
+                        'actions' => ['index','create','update','delete','admin','view','findModel'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

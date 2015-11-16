@@ -8,7 +8,7 @@ use app\models\AdminUsersSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\filters\AccessControl;
 /**
  * AdminUsersController implements the CRUD actions for AdminUsers model.
  */
@@ -18,6 +18,17 @@ class AdminusersController extends Controller
     public function behaviors()
     {
         return [
+                        'access' => [
+                'class' => AccessControl::className(),
+                //'only' => ['logout'],
+                'rules' => [
+                    [
+                        'actions' => ['index','create','update','delete','admin','view','findModel'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -53,7 +64,11 @@ class AdminusersController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
+public function afterSave()
+{
 
+$this->password=md5($this->password);  
+}
     /**
      * Creates a new AdminUsers model.
      * If creation is successful, the browser will be redirected to the 'view' page.

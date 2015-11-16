@@ -8,7 +8,7 @@ use app\models\AnswersSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\filters\AccessControl;
 /**
  * AnswersController implements the CRUD actions for Answers model.
  */
@@ -18,6 +18,17 @@ class AnswersController extends Controller
     public function behaviors()
     {
         return [
+                        'access' => [
+                'class' => AccessControl::className(),
+                //'only' => ['logout'],
+                'rules' => [
+                    [
+                        'actions' => ['index','create','update','delete','admin','view','findModel'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

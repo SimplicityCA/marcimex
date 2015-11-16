@@ -3,7 +3,7 @@
 namespace app\models;
 
 use Yii;
-
+use yii\web\UploadedFile;
 /**
  * This is the model class for table "site_images".
  *
@@ -30,7 +30,7 @@ class SiteImages extends \yii\db\ActiveRecord
         return [
             [['name', 'image_desktop'], 'required'],
             [['name'], 'string', 'max' => 150],
-            [['image_desktop', 'image_mobile'], 'string', 'max' => 255]
+            [['image_desktop', 'image_mobile'], 'file']
         ];
     }
 
