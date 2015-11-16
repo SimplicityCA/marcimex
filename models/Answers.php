@@ -43,9 +43,9 @@ class Answers extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'question_id' => 'Question ID',
-            'content' => 'Content',
-            'correct' => 'Correct',
+            'question_id' => 'Pregunta',
+            'content' => 'Contenido',
+            'correct' => 'Correcta',
         ];
     }
 

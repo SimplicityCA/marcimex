@@ -43,7 +43,7 @@ class Scores extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_id' => 'User ID',
+            'user_id' => 'Usuario',
             'score' => 'Score',
             'date' => 'Date',
         ];

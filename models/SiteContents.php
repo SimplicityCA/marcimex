@@ -40,8 +40,8 @@ class SiteContents extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'content' => 'Content',
+            'name' => 'Nombre',
+            'content' => 'Contenido',
         ];
     }
 }

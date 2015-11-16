@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use yii\helpers\ArrayHelper;
+use app\models\Questions;
 /* @var $this yii\web\View */
 /* @var $model app\models\Answers */
 /* @var $form yii\widgets\ActiveForm */
@@ -11,9 +12,7 @@ use yii\widgets\ActiveForm;
 <div class="answers-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'question_id')->textInput() ?>
-
+    <?= $form->field($model, 'question_id')->dropDownList(ArrayHelper::map(Questions::find()->all(), 'id','content'), ['prompt'=>'Elige una pregunta']); ?>
     <?= $form->field($model, 'content')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'correct')->textInput() ?>

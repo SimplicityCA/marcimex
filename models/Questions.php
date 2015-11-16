@@ -40,7 +40,7 @@ class Questions extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'content' => 'Content',
+            'content' => 'Contenido',
         ];
     }
 

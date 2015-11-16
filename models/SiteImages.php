@@ -41,9 +41,9 @@ class SiteImages extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'image_desktop' => 'Image Desktop',
-            'image_mobile' => 'Image Mobile',
+            'name' => 'Nombre',
+            'image_desktop' => 'Imagen Escritorio',
+            'image_mobile' => 'Imagen Mobile',
         ];
     }
 }
