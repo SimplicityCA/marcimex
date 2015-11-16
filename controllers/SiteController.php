@@ -89,7 +89,7 @@ class SiteController extends Controller
         $premios=SiteImages::find()->where(['name'=>'premios'])->one();
         $btn_empezar=SiteImages::find()->where(['name'=>'boton empezar'])->one();
         $content= SiteContents::find()->where(['name'=>'premios'])->one();
-        return $this->render('awards',['content'=>$content,'premios'=>$premios]);
+        return $this->render('awards',['content'=>$content,'premios'=>$premios,'btn_empezar'=>$btn_empezar]);
     }
     public function actionUser(){
             $principal_formulario =SiteImages::find()->where(['name'=>'principal formulario'])->one();
