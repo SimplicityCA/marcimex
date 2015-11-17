@@ -99,8 +99,13 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      */
     public function validateAuthKey($authKey)
     {
-        return $this->authKey === $authKey;
+        return $this->getauthKey() === $authKey;
     }
+    public function generateAuthKey()
+    {
+        $this->auth_key = Security::generateRandomKey();
+    }
+
 
     /**
      * Validates password
