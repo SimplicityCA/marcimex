@@ -75,6 +75,9 @@ $this->registerJs($script,View::POS_END);
         </div>
         <?php } ?>
     	<?php endforeach; ?>
+        <img class="col-lg-12 col-md-12 col-xs-12 col-sm-12" src="<?= Url::base() ?>/images/<?= $sep->image_desktop ?>" />
+        <img class="col-lg-12 col-md-12 col-xs-12 col-sm-12" src="<?= Url::base() ?>/images/<?= $sep->image_desktop ?>" />
+                    
 <img id="img_<?= $pregunta1->name ?>" style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta1->image_desktop ?>"/>
 <img id="img_<?= $pregunta2->name ?>" style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta2->image_desktop ?>"/>
 <img id="img_<?= $pregunta3->name ?>" style="float:left" src="<?= Url::base() ?>/images/<?= $pregunta3->image_desktop ?>"/>

@@ -54,22 +54,25 @@ AppAsset::register($this);
     // NavBar::end();
     ?>
 
-    <div class="container" style="background-image: url('<?= Url::base() ?>/images/back.jpg');">
+    <div class="container-fluid" style="background-image: url('<?= Url::base() ?>/images/<?= $background->image_desktop ?>'); background-repeat: no-repeat;">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
-        <img src="<?= Url::base() ?>/images/logo_felicidades.png"/>
-        <?= $content ?>
+        <div class="container">
+            <img class="col-lg-5 col-md-5 col-sm-8 col-xs-12" src="<?= Url::base() ?>/images/<?= $logo->image_desktop ?>"/>
+        
+            <?= $content ?>
+        </div>
     </div>
 </div>
 
-<footer class="footer">
+<!-- <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
-</footer>
+</footer> -->
 
 <?php $this->endBody() ?>
 </body>

@@ -89,3 +89,56 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+.center
+{ text-align:center;}
+
+.image_home{
+    margin-top: -16%;
+}
+
+.home_text{
+    color:white;
+}
+.text_awards{
+    font-size:36px;
+    color:#3F2714;
+}
+
+.image_awards{
+    margin-top: -6%;
+    margin-bottom: 4%;
+}
+
+.div_awards
+{
+    margin-top:4%;
+}
+
+.start_awards{
+    margin-top:3%;
+}
+
+.form_text{
+    font-size: 26px;
+    padding-right: 14%;
+    padding-left: 14%;
+    color:#3A581B;
+    margin-top:16%;
+}
+
+.button_form{
+        display: block;
+    background-size: 100%;
+    width: 27%;
+    height: 52px;
+    border: none;
+    background-repeat: no-repeat;
+    background: transparent;
+    margin-top:25%;
+}
+
+.form-group label { width:40%; float:left;}
+
+.input_sep{
+    margin-bottom:2%;
+}

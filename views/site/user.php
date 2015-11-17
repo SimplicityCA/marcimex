@@ -36,31 +36,32 @@ $('#users-number_id').change(function(){
 ";
 $this->registerJs($script,View::POS_END);
 ?>
+<div class="col-lg-7 center">
+        <p class="form_text"><?= $content->content ?></p>
+</div>
+<div class="users-form col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="col-lg-5">
+        <?php $form = ActiveForm::begin();?>
+        <?= $form->field($model, 'number_id')->textInput(['maxlength' => true, 'class' => 'input_sep col-lg-7']) ?>
 
-<div class="users-form">
-<img style="float:left" src="<?= Url::base() ?>/images/<?= $principal_formulario->image_desktop ?>"/>
+        <?= $form->field($model, 'name')->textInput(['maxlength' => true, 'class' => 'input_sep col-lg-7']) ?>
 
-    <?php $form = ActiveForm::begin(); ?>
-    <?= $form->field($model, 'number_id')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'last_name')->textInput(['maxlength' => true, 'class' => 'input_sep col-lg-7']) ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'email')->textInput(['maxlength' => true, 'class' => 'input_sep col-lg-7']) ?>
 
-    <?= $form->field($model, 'last_name')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'phone')->textInput(['maxlength' => true, 'class' => 'input_sep col-lg-7']) ?>
 
-    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'city')->textInput(['maxlength' => true]) ?>
-
-   
-<input type="hidden" id="action" name="action" value="CREATE"/>
-<img style="float:left" src="<?= Url::base() ?>/images/<?= $btn_continuar->image_desktop ?>"/>
-
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= $form->field($model, 'city')->textInput(['maxlength' => true, 'class' => 'input_sep col-lg-7']) ?>
+        <input type="checkbox" name="terms" value="Terminos" /> Estoy de acuerdo con los <a href="#" > T&eacute;rminos y Condiciones </a>
+        <input type="hidden" id="action" name="action" value="CREATE"/>
     </div>
+    <div class="col-lg-7">
+        <img class= "col-lg-5"src="<?= Url::base() ?>/images/<?= $principal_formulario->image_desktop ?>"/>
+        <div class="form-group">
+            <input type="submit" name="submit" value="" class= "button_form" style='background-image: url("<?=Url::base() ?>/images/<?= $btn_continuar->image_desktop ?>");' />
+        </div>
 
-    <?php ActiveForm::end(); ?>
-
+        <?php ActiveForm::end(); ?>
+    </div>
 </div>

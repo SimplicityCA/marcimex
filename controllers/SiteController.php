@@ -82,18 +82,22 @@ class SiteController extends Controller
         $score=Scores::find()->where(['user_id'=>$user->id]) ->orderBy(['date'=>SORT_DESC])->one();
         $questions_aux=Questions::find()->count();
         $questions=Questions::find()->count();
-        return $this->render('finish',['content'=>$content,'user'=>$user,'questions'=>$questions,'score'=>$score,'principal_felicidades'=>$principal_felicidades,'btn_volverjugar'=>$btn_volverjugar]);
+        $sep=SiteImages::find()->where(['name'=>'separador'])->one();
+        return $this->render('finish',['content'=>$content,'user'=>$user,'questions'=>$questions,'score'=>$score,'sep'=>$sep,'principal_felicidades'=>$principal_felicidades,'btn_volverjugar'=>$btn_volverjugar]);
     }
         public function actionAwards()
     {
         $premios=SiteImages::find()->where(['name'=>'premios'])->one();
+        $sep=SiteImages::find()->where(['name'=>'separador'])->one();
         $btn_empezar=SiteImages::find()->where(['name'=>'boton empezar'])->one();
         $content= SiteContents::find()->where(['name'=>'premios'])->one();
-        return $this->render('awards',['content'=>$content,'premios'=>$premios,'btn_empezar'=>$btn_empezar]);
+        return $this->render('awards',['content'=>$content,'premios'=>$premios,'btn_empezar'=>$btn_empezar,'sep'=>$sep]);
     }
     public function actionUser(){
             $principal_formulario =SiteImages::find()->where(['name'=>'principal formulario'])->one();
             $btn_continuar=SiteImages::find()->where(['name'=>'boton continuar'])->one();
+
+            $content= SiteContents::find()->where(['name'=>'formulario'])->one();
             //$background=SiteImages::find()->where(['name'=>'formulario'])->one();
              $model = new Users();
              $model->creation_date= date('Y-m-d H:i:s');
@@ -102,7 +106,7 @@ class SiteController extends Controller
                 $model=Users::find()->where(['number_id'=>$_POST['Users']['number_id']])->one();
                 
             }
-                 if ($model->load(Yii::$app->request->post()) && $model->save()) {
+         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['questions', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -112,7 +116,7 @@ class SiteController extends Controller
       
         } else {
             return $this->render('user', [
-                'model' => $model, 'principal_formulario' => $principal_formulario,'btn_continuar'=>$btn_continuar
+                'content'=>$content,'model' => $model, 'principal_formulario' => $principal_formulario,'btn_continuar'=>$btn_continuar
             ]);
         }
     }
@@ -123,7 +127,8 @@ class SiteController extends Controller
                 $pregunta3=SiteImages::find()->where(['name'=>'pregunta3'])->one();
                 $pregunta4=SiteImages::find()->where(['name'=>'pregunta4'])->one();
                 $pregunta5=SiteImages::find()->where(['name'=>'pregunta5'])->one();
-       
+        $sep=SiteImages::find()->where(['name'=>'separador'])->one();
+        
         $btn_siguiente=SiteImages::find()->where(['name'=>'boton siguiente'])->one();
         $model=Questions::find()->all();
         $score=0;
@@ -140,7 +145,7 @@ class SiteController extends Controller
             }
          }else{
         return $this->render('questions', [
-                'model' => $model, 'pregunta1' => $pregunta1, 'pregunta2' => $pregunta2, 'pregunta3' => $pregunta3, 'pregunta4' => $pregunta4, 'pregunta5' => $pregunta5,'btn_siguiente'=>$btn_siguiente
+                'model' => $model, 'sep'=>$sep,'pregunta1' => $pregunta1, 'pregunta2' => $pregunta2, 'pregunta3' => $pregunta3, 'pregunta4' => $pregunta4, 'pregunta5' => $pregunta5,'btn_siguiente'=>$btn_siguiente
             ]);
     }
     }
