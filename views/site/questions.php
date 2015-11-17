@@ -3,7 +3,8 @@ use yii\helpers\Url;
 use yii\web\View;
 use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
-
+$chequed2="";
+$chequed1="";
 $this->title = 'Preguntas';
 $script=<<< JS
 $('.next').click(function() {
@@ -43,8 +44,9 @@ $this->registerJs($script,View::POS_END);
         <div id="question_container_<?= $question->id ?>">
         	<?= $question->content ?>
         	<div>
-        		<?php foreach($question->answers as $answer): ?>
-        		<input type="radio" name="question_<?= $question->id ?>" value="<?= $answer->correct ?>"><?= $answer->content ?><br>
+        		<?php foreach($question->answers as $z => $answer): ?>
+                <?php if($y==0) $checked1="checked" ?>
+        		<input type="radio" name="question_<?= $question->id ?>" value="<?= $answer->correct ?>"<?= $checked1 ?>><?= $answer->content ?><br>
         		<?php endforeach; ?>
 
         	</div>
@@ -55,8 +57,9 @@ $this->registerJs($script,View::POS_END);
         <div id="question_container_<?= $question->id ?>" style="display:none">
         	<?= $question->content ?>
         	<div>
-        		<?php foreach($question->answers as $answer): ?>
-        		<input type="radio" name="question_<?= $question->id ?>" value="<?= $answer->correct ?>"><?= $answer->content ?><br>
+        		<?php foreach($question->answers as $y => $answer): ?>
+                <?php if($y==0) $checked2="checked" ?>
+        		<input type="radio" name="question_<?= $question->id ?>" value="<?= $answer->correct ?>" <?= $checked2 ?>><?= $answer->content ?><br>
         		<?php endforeach; ?>
 
         	</div> 
