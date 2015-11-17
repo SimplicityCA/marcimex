@@ -45,7 +45,7 @@ $this->registerJs($script,View::POS_END);
         	<?= $question->content ?>
         	<div>
         		<?php foreach($question->answers as $z => $answer): ?>
-                <?php if($y==0) $checked1="checked" ?>
+                <?php if($y==0){ $checked1="checked"; } ?>
         		<input type="radio" name="question_<?= $question->id ?>" value="<?= $answer->correct ?>"<?= $checked1 ?>><?= $answer->content ?><br>
         		<?php endforeach; ?>
 
@@ -58,7 +58,7 @@ $this->registerJs($script,View::POS_END);
         	<?= $question->content ?>
         	<div>
         		<?php foreach($question->answers as $y => $answer): ?>
-                <?php if($y==0) $checked2="checked" ?>
+                <?php if($y==0){ $checked2="checked"; } ?>
         		<input type="radio" name="question_<?= $question->id ?>" value="<?= $answer->correct ?>" <?= $checked2 ?>><?= $answer->content ?><br>
         		<?php endforeach; ?>
 
