@@ -126,6 +126,7 @@ class SiteController extends Controller
        
         $btn_siguiente=SiteImages::find()->where(['name'=>'boton siguiente'])->one();
         $model=Questions::find()->all();
+        $score=0;
          if (Yii::$app->request->post()) {
             foreach($model as $question){
                  $score+=$_POST["question_".$question->id];
