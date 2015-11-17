@@ -2,7 +2,12 @@ html,
 body {
     height: 100%;
 }
-
+#yii-debug-toolbar {
+    display: none;
+}
+.wrap {
+    padding: 0 !important;
+}
 .wrap {
     min-height: 100%;
     height: auto;
@@ -127,7 +132,7 @@ a.desc:after {
 }
 
 .button_form{
-        display: block;
+    display: block;
     background-size: 100%;
     width: 27%;
     height: 52px;
@@ -141,4 +146,71 @@ a.desc:after {
 
 .input_sep{
     margin-bottom:2%;
+}
+
+a.btn_premios,
+a.btn_empezar {
+    /*float: left;*/
+}
+form#w0 label {
+    text-align: right;
+    padding-right: 15px;
+}
+.wrap .container-fluid {
+    background-size: cover;
+}
+@media (max-width: 1200px) {
+    .wrap .container-fluid {
+        /*max-height: 645px;*/
+    }
+    form#w0 label {
+        padding-right: 5px;
+    }
+}
+@media (max-width: 991px) {
+    .users-form .container-fluid {
+        text-align: center;
+    }
+    .submit-container {
+        margin-top: -70px;
+    }
+}
+@media (max-width: 767px) {
+    .wrap .container {
+        text-align: center;
+    }
+    .main-desktop-image {
+        margin-top: 130px !important;
+    }
+    .body-content .row > div > div {
+        margin-top: 20px;
+    }
+    img.pull-right {
+        float: none ! important;
+    }
+    .submit-container input.button_form {
+        min-width: 100px;
+    }
+}
+@media (max-width: 480px) {
+    .main-desktop-image {
+        margin-top: 80px !important;
+    }
+    .submit-container {
+        margin-top: -40px;
+    }
+    form#w0 label,
+    form#w0 input[type=text] {
+        width: 100%;
+    }
+    form#w0 label {
+        text-align: left;
+    }
+}
+.container img {
+    max-width: 100%;
+}
+input.button_form {
+    background-size: contain;
+    background-repeat: no-repeat;
 }
