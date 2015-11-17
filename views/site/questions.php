@@ -3,8 +3,8 @@ use yii\helpers\Url;
 use yii\web\View;
 use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
-$chequed2="";
-$chequed1="";
+$checked2="";
+$checked1="";
 $this->title = 'Preguntas';
 $script=<<< JS
 $('.next').click(function() {
