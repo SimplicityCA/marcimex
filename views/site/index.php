@@ -2,7 +2,7 @@
 use yii\helpers\Url;
 /* @var $this yii\web\View */
 
-$this->title = $content->name;
+$this->title = $content1->name;
 
 ?>
 <div class="site-index">
