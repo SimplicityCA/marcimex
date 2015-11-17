@@ -27,7 +27,7 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
+<div class="wrap container-fluid" style="background-image: url('<?= Url::base() ?>/images/<?= $background->image_desktop ?>'); background-repeat: no-repeat;">
     <?php
     // NavBar::begin([
     //     'brandLabel' => 'My Company',
@@ -54,7 +54,7 @@ AppAsset::register($this);
     // NavBar::end();
     ?>
 
-    <div class="container-fluid" style="background-image: url('<?= Url::base() ?>/images/<?= $background->image_desktop ?>'); background-repeat: no-repeat;">
+    <div>
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
