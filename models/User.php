@@ -91,7 +91,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
      */
     public function getAuthKey()
     {
-        throw new NotSupportedException('"getAuthKey" is not implemented.');
+        return $this->auth_key;
     }
 
     /**
