@@ -23,7 +23,8 @@ class UsersController extends Controller
                 //'only' => ['logout'],
                 'rules' => [
                     [
-                        'actions' => ['index','create','update','delete','admin','view','findModel'],
+                               //'actions' => ['index','create','update','delete','admin','view','findModel'],
+                        'actions' => ['index','update','admin','view','findModel'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
