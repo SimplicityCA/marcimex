@@ -31,7 +31,7 @@ class SiteImages extends \yii\db\ActiveRecord
             //[['name', 'image_desktop','image_mobile'], 'required'],
             [['name', 'image_desktop'], 'required'],
             [['name'], 'string', 'max' => 150],
-            [['image_desktop', 'image_mobile'], 'file', 'extensions' => 'png, jpg']
+            [['image_desktop', 'image_mobile'], 'file']
         ];
     }
 
