@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'image_desktop')->fileInput() ?>
 
-    <?= $form->field($model, 'image_mobile')->fileInput() ?>
+    <?php // $form->field($model, 'image_mobile')->fileInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
