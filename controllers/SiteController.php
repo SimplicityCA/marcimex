@@ -14,7 +14,7 @@ use app\models\Users;
 use app\models\Questions;
 use app\models\Scores;
 use yii\web\Response;
-
+use yii\helpers\Url;
 class SiteController extends Controller
 {
     public function behaviors()
@@ -153,12 +153,12 @@ class SiteController extends Controller
     {
         $this->layout="admin";
         if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
+                    return  $this->redirect(['/admin/']);
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->redirect(['/admin/']);
         }
         return $this->render('login', [
             'model' => $model,
