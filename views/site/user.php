@@ -7,9 +7,11 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 /* @var $model app\models\Users */
 /* @var $form yii\widgets\ActiveForm */
+$this->title = 'Formulario';
 $script="
 $('#users-number_id').change(function(){
         $.ajax({
+  
     url : 'site/find',
     data : { number_id : $(this).val() },
     type : 'POST',
@@ -32,6 +34,19 @@ $('#users-number_id').change(function(){
     }
 });
     });
+
+var elements = document.getElementsByTagName('INPUT');
+for (var i = 0; i < elements.length; i++) {
+    elements[i].oninvalid = function(e) {
+        e.target.setCustomValidity('');
+        if (!e.target.validity.valid) {
+            e.target.setCustomValidity('Este campo es obligatorio');
+        }
+    };
+    elements[i].oninput = function(e) {
+        e.target.setCustomValidity('');
+    };
+}
 ";
 $this->registerJs($script,View::POS_END);
 ?>
@@ -52,13 +67,15 @@ $this->registerJs($script,View::POS_END);
         <?= $form->field($model, 'phone')->textInput(['maxlength' => true, 'class' => 'input_sep col-sm-7']) ?>
 
         <?= $form->field($model, 'city')->textInput(['maxlength' => true, 'class' => 'input_sep col-sm-7']) ?>
-        <input type="checkbox" name="terms" value="Terminos" /> Estoy de acuerdo con los <a href="#" > T&eacute;rminos y Condiciones </a>
+        <input type="checkbox" name="terms" value="Terminos" required title="Acepta los T&eacute;rminos y Condiciones para continuar" /> Estoy de acuerdo con los <a href="#" > T&eacute;rminos y Condiciones </a>
+        
         <input type="hidden" id="action" name="action" value="CREATE"/>
     </div>
     <div class="col-md-7 submit-container">
         <img class= "col-xs-5"src="<?= Url::base() ?>/images/<?= $principal_formulario->image_desktop ?>"/>
         <div class="form-group">
-            <input type="submit" name="submit" value="" class= "button_form" style='background-image: url("<?=Url::base() ?>/images/<?= $btn_continuar->image_desktop ?>");' />
+
+            <input type="image" name="submit" value="" class= "button_form" src='<?=Url::base() ?>/images/<?= $btn_continuar->image_desktop ?>' />
         </div>
 
         <?php ActiveForm::end(); ?>

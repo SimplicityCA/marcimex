@@ -104,11 +104,30 @@ a.desc:after {
 .home_text{
     color:white;
 }
+.congrats_text{
+    font-size:30px;
+    color:#3F2714;
+    font-weight: bold;
+}
+.score_text{
+    font-size:20px;
+    color:#3F2714;
+}
 .text_awards{
     font-size:36px;
     color:#3F2714;
 }
 
+.text_questions{
+    font-size:28px;
+    color:#3F2714;
+    
+}
+.question_container{
+    padding-right: 5%;
+    padding-left: 5%;
+    margin-top: 18%;
+}
 .image_awards{
     margin-top: -6%;
     margin-bottom: 4%;
@@ -124,6 +143,13 @@ a.desc:after {
 }
 
 .form_text{
+    font-size: 26px;
+    padding-right: 14%;
+    padding-left: 14%;
+    color:#3A581B;
+    margin-top:16%;
+}
+.question_text{
     font-size: 26px;
     padding-right: 14%;
     padding-left: 14%;
@@ -214,3 +240,4 @@ input.button_form {
     background-size: contain;
     background-repeat: no-repeat;
 }
+
