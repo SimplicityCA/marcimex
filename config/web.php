@@ -38,10 +38,10 @@ $config = [
         'enablePrettyUrl' => true,
         'rules' => array(
                 
-                'Preguntas-<controller:\w+>s'    => '<controller>/questions',
-                'Premios-<controller:\w+>s' => '<controller>/awards',
-                'Felicidades-<controller:\w+>s'    => '<controller>/finish',
-                'Formulario-<controller:\w+>s'    => '<controller>/user',
+                'Preguntas'    => 'site/questions',
+                'Premios' => 'site/awards',
+                'Felicidades'    => 'site/finish',
+                'Formulario'    => 'site/user',
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
