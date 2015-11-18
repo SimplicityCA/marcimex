@@ -50,10 +50,10 @@ for (var i = 0; i < elements.length; i++) {
 ";
 $this->registerJs($script,View::POS_END);
 ?>
-<div class="col-md-7 center">
+<div class="col-md-7 col-xs-12 center user-form-text-container">
         <p class="form_text"><?= $content->content ?></p>
 </div>
-<div class="users-form col-md-12">
+<div class="users-form col-xs-12">
     <div class="col-md-5">
         <?php $form = ActiveForm::begin();?>
         <?= $form->field($model, 'number_id')->textInput(['maxlength' => true, 'class' => 'input_sep col-sm-7']) ?>

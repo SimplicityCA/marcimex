@@ -1,6 +1,19 @@
+@font-face {
+    font-family: 'museo_slab300';
+    src: url('fonts/museoslab_300-webfont.eot');
+    src: url('fonts/museoslab_300-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/museoslab_300-webfont.woff2') format('woff2'),
+         url('fonts/museoslab_300-webfont.woff') format('woff'),
+         url('fonts/museoslab_300-webfont.ttf') format('truetype'),
+         url('fonts/museoslab_300-webfont.svg#museo_slab300') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
 html,
 body {
     height: 100%;
+    font-family: 'museo_slab300';
 }
 #yii-debug-toolbar {
     display: none;
@@ -173,11 +186,6 @@ a.desc:after {
 .input_sep{
     margin-bottom:2%;
 }
-
-a.btn_premios,
-a.btn_empezar {
-    /*float: left;*/
-}
 form#w0 label {
     text-align: right;
     padding-right: 15px;
@@ -190,7 +198,7 @@ form#w0 label {
         /*max-height: 645px;*/
     }
     form#w0 label {
-        padding-right: 5px;
+        padding-right: 4px;
     }
 }
 @media (max-width: 991px) {
@@ -198,7 +206,24 @@ form#w0 label {
         text-align: center;
     }
     .submit-container {
-        margin-top: -70px;
+        margin-top: -120px;
+    }
+    .answer_container {
+        margin-top: 30px;
+        float: left;
+        padding: 0px 35%;
+        text-align: left;
+    }
+    .question_container {
+        float: left;
+        margin-top: 30px;
+    }
+    .question-images-container {
+        float: left;
+    }
+    .user-form-text-container .form_text {
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
 }
 @media (max-width: 767px) {
@@ -216,6 +241,20 @@ form#w0 label {
     }
     .submit-container input.button_form {
         min-width: 100px;
+        height: auto;
+    }
+}
+@media (max-width: 630px) {  
+    .submit-container {
+        margin-top: -100px;
+    }
+}
+@media (max-width: 560px) {
+    .answer_container {
+        padding: 0px 30%;
+    } 
+    .submit-container {
+        margin-top: -70px;
     }
 }
 @media (max-width: 480px) {
@@ -233,6 +272,16 @@ form#w0 label {
         text-align: left;
     }
 }
+@media (max-width: 420px) {
+    .answer_container {
+        padding: 0px 25%;
+    }
+}
+@media (max-width: 370px) {
+    .answer_container {
+        padding: 0px 22%;
+    }
+}
 .container img {
     max-width: 100%;
 }
@@ -240,4 +289,10 @@ input.button_form {
     background-size: contain;
     background-repeat: no-repeat;
 }
-
+form#w0 .next {
+    float: left;
+    margin-top: 20px;
+}
+input[type="radio"] {
+    margin-right: 8px !important;
+}

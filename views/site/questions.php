@@ -51,7 +51,7 @@ $this->registerJs($script,View::POS_END);
                     <img class="col-sm-12" src="<?= Url::base() ?>/images/<?= $sep->image_desktop ?>" />
                 </div>
                 
-        	       <div class="col-md-5" id="answer_container_<?= $question->id ?>">
+        	       <div class="col-md-5 answer_container" id="answer_container_<?= $question->id ?>">
             		  <?php foreach($question->answers as $z => $answer): ?>
                           <?php if($z==0){ $checked1="checked"; } ?>
             		      <input type="radio" name="question_<?= $question->id ?>" value="<?= $answer->correct ?>"<?= $checked1 ?>><?= $answer->content ?><br>
@@ -68,7 +68,7 @@ $this->registerJs($script,View::POS_END);
                         <img class="col-sm-12" src="<?= Url::base() ?>/images/<?= $sep->image_desktop ?>" />
                     </div>
     	          
-                        <div id="answer_container_<?= $question->id ?>" class="col-md-5" style="display:none" >
+                        <div id="answer_container_<?= $question->id ?>" class="col-md-5 answer_container" style="display:none" >
                 		      <?php foreach($question->answers as $y => $answer): ?>
                                     <?php if($y==0){ $checked2="checked"; } ?>
                 		          <input type="radio" name="question_<?= $question->id ?>" value="<?= $answer->correct ?>" <?= $checked2 ?>><?= $answer->content ?><br>
@@ -77,7 +77,8 @@ $this->registerJs($script,View::POS_END);
         	           
                     	       <?php if($k+1==count($model)){ ?>
               
-                    	           <input type="submit" value="Finalizar">
+                    	           <!-- <input type="submit" value="Finalizar"> -->
+                                   <input type="image" name="submit" value="" class= "next" src='<?= Url::base() ?>/images/<?= $btn_siguiente->image_desktop ?>' />
                     	       <?php }else{ ?>
             			             <a id="button_question_<?= $question->id ?>" id_question="<?= $question->id ?>" class="next" href="#"><img style="float:left" src="<?= Url::base() ?>/images/<?= $btn_siguiente->image_desktop ?>"/></a>
                     	       <?php } ?>
@@ -91,7 +92,7 @@ $this->registerJs($script,View::POS_END);
 
 
     <?php ActiveForm::end(); ?>
-    <div class="col-md-7 center">
+    <div class="col-md-7 center question-images-container">
         <img id="img_<?= $pregunta1->name ?>"  src="<?= Url::base() ?>/images/<?= $pregunta1->image_desktop ?>"/>
         <img id="img_<?= $pregunta2->name ?>" style="display:none" src="<?= Url::base() ?>/images/<?= $pregunta2->image_desktop ?>"/>
         <img id="img_<?= $pregunta3->name ?>" style="display:none" src="<?= Url::base() ?>/images/<?= $pregunta3->image_desktop ?>"/>
