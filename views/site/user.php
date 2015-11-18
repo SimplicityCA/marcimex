@@ -10,7 +10,6 @@ use yii\helpers\Url;
 $script="
 $('#users-number_id').change(function(){
         $.ajax({
-  
     url : 'site/find',
     data : { number_id : $(this).val() },
     type : 'POST',
