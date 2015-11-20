@@ -63,7 +63,7 @@ AppAsset::register($this);
         
             <?= $content ?>
             <div class="col-xs-12 center">
-                    <a href="#" target="_blank"> T&eacute;rminos y Condiciones </a>
+                    <a href="<?= Url::to(['site/terms']) ?>" target="_blank"> T&eacute;rminos y Condiciones </a>
             </div>
         </div>
     </div>
