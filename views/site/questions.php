@@ -43,6 +43,7 @@ $this->registerJs($script,View::POS_END);
 
     	<?php $form = ActiveForm::begin(); ?>
         <?php foreach($model as $k => $question): ?>
+            <?php $checked_answer = rand(0,2); ?>
             <?php if($k==0){ ?>
                 
     	        <div id="question_container_<?= $question->id ?>" class="col-md-7 center question_container">
@@ -53,7 +54,7 @@ $this->registerJs($script,View::POS_END);
                 
         	       <div class="col-md-5 answer_container" id="answer_container_<?= $question->id ?>">
             		  <?php foreach($question->answers as $z => $answer): ?>
-                          <?php if($z==0){ $checked1="checked"; } ?>
+                          <?php $checked1 = ($z==$checked_answer)?"checked":""; ?>
             		      <input type="radio" name="question_<?= $question->id ?>" value="<?= $answer->correct ?>"<?= $checked1 ?>><?= $answer->content ?><br>
             		  <?php endforeach; ?>
             	       <a id="button_question_<?= $question->id ?>" id_question="<?= $question->id ?>" class="next" href="#"><img style="float:left" src="<?= Url::base() ?>/images/<?= $btn_siguiente->image_desktop ?>"/></a>
@@ -70,7 +71,7 @@ $this->registerJs($script,View::POS_END);
     	          
                         <div id="answer_container_<?= $question->id ?>" class="col-md-5 answer_container" style="display:none" >
                 		      <?php foreach($question->answers as $y => $answer): ?>
-                                    <?php if($y==0){ $checked2="checked"; } ?>
+                                    <?php $checked2 = ($y==$checked_answer)?"checked":""; ?>
                 		          <input type="radio" name="question_<?= $question->id ?>" value="<?= $answer->correct ?>" <?= $checked2 ?>><?= $answer->content ?><br>
                 		      <?php endforeach; ?>
 
