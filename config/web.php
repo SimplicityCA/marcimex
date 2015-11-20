@@ -39,6 +39,7 @@ $config = [
         'rules' => array(
                 
                 'Preguntas'    => 'site/questions',
+                 'Terminos'    => 'site/terms',
                 'Premios' => 'site/awards',
                 'Felicidades'    => 'site/finish',
                 'Formulario'    => 'site/user',

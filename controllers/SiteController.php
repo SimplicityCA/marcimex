@@ -72,6 +72,12 @@ class SiteController extends Controller
         $btn_empezar=SiteImages::find()->where(['name'=>'boton empezar'])->one();
         return $this->render('index',['content1'=>$content1,'content2'=>$content2,'separador'=>$separador,'principal_home'=>$principal_home,'btn_premios'=>$btn_premios,'btn_empezar'=>$btn_empezar]);
     }
+        public function actionTerms()
+    {
+        
+
+        return $this->render('terms');
+    }
         public function actionFinish($id)
     {
         
