@@ -11,7 +11,7 @@ $this->title = 'Términos y condiciones'
     <div class="body-content">
 
         <div class="row">
-      <div class="col-xs-12 text-left">
+      <div class="col-xs-12 text-left" style='font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;' >
 <p class="p2">&nbsp;</p>
 <p class="p1"><span class="s1"><strong>PRIMERA.- SORTEO:</strong></span></p>
 <p class="p3"><span class="s1">1.1 La compa&ntilde;&iacute;a MARCIMEX S.A. promueve y organiza un juego digital denominado &ldquo;NAVIDAD MARCIMEX&rdquo; el mismo se realizar&aacute; solamente v&iacute;a online y exclusivamente a trav&eacute;s de un micrositio (<a href="http://www.marcimex.com/navidadmarcimex/"><span class="s2">www.marcimex.com/navidadmarcimex/</span></a>). Aplica solamente a la Rep&uacute;blica de Ecuador.</span></p>
