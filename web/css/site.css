@@ -111,11 +111,20 @@ a.desc:after {
 { text-align:center;}
 
 .image_home{
-    margin-top: -16%;
+    margin-top: -14%;
 }
 
 .home_text{
     color:white;
+    font-size:20px;
+}
+
+.home_inst{
+    margin-top:3%;
+}
+
+.btn_home{
+    margin-top:3%;
 }
 .congrats_text{
     font-size:30px;
@@ -140,9 +149,10 @@ a.desc:after {
     padding-right: 5%;
     padding-left: 5%;
     margin-top: 18%;
+    margin-bottom:3%;
 }
 .image_awards{
-    margin-top: -6%;
+    margin-top: 16%;
     margin-bottom: 4%;
 }
 
@@ -169,17 +179,23 @@ a.desc:after {
     color:#3A581B;
     margin-top:16%;
 }
-
+.btn_awardform{
+    margin-top:25%;
+}
 .button_form{
     display: block;
     background-size: 100%;
-    width: 27%;
+    width: 35%;
     height: 52px;
     border: none;
     background-repeat: no-repeat;
     background: transparent;
-    margin-top:25%;
+    margin-top:5%;
+    outline: none;
 }
+.question-images-container {
+        margin-top:2%;
+    }
 
 .form-group label { width:40%; float:left;}
 
@@ -193,6 +209,14 @@ form#w0 label {
 .wrap.container-fluid {
     background-size: cover;
 }
+.answer_container {
+        margin-top: 30px;
+        float: left;
+        padding: 0px 6%;
+        text-align: left;
+        color:white;
+        font-size:18px;
+    }
 @media (max-width: 1200px) {
     .wrap .container-fluid {
         /*max-height: 645px;*/
@@ -206,7 +230,7 @@ form#w0 label {
         text-align: center;
     }
     .submit-container {
-        margin-top: -120px;
+        margin-top: 63px;
     }
     .answer_container {
         margin-top: 30px;
@@ -220,10 +244,14 @@ form#w0 label {
     }
     .question-images-container {
         float: left;
+        margin-top:2%;
     }
     .user-form-text-container .form_text {
         margin-top: 30px;
         margin-bottom: 30px;
+    }
+    .button_form{
+        width:27%;
     }
 }
 @media (max-width: 767px) {
@@ -246,7 +274,7 @@ form#w0 label {
 }
 @media (max-width: 630px) {  
     .submit-container {
-        margin-top: -100px;
+        margin-top: 55px;
     }
 }
 @media (max-width: 560px) {
@@ -254,7 +282,7 @@ form#w0 label {
         padding: 0px 30%;
     } 
     .submit-container {
-        margin-top: -70px;
+        margin-top: 74px;
     }
 }
 @media (max-width: 480px) {
@@ -262,7 +290,13 @@ form#w0 label {
         margin-top: 80px !important;
     }
     .submit-container {
-        margin-top: -40px;
+        margin-top: 70px;
+    }
+    .button_form{
+        width:37%;
+    }
+    .btn_awardform {
+        width: 42%;
     }
     form#w0 label,
     form#w0 input[type=text] {

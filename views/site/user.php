@@ -67,17 +67,16 @@ $this->registerJs($script,View::POS_END);
         <?= $form->field($model, 'phone')->textInput(['maxlength' => true, 'class' => 'input_sep col-sm-7']) ?>
 
         <?= $form->field($model, 'city')->textInput(['maxlength' => true, 'class' => 'input_sep col-sm-7']) ?>
-        <input type="checkbox" name="terms" value="Terminos" required title="Acepta los T&eacute;rminos y Condiciones para continuar" /> Estoy de acuerdo con los <a href="#" > T&eacute;rminos y Condiciones </a>
+        <input type="checkbox" name="terms" value="Terminos" required title="Acepta los T&eacute;rminos y Condiciones para continuar" /> Estoy de acuerdo con los <a href="#" target="_blank"> T&eacute;rminos y Condiciones </a>
+        <input type="image" name="submit" value="" class= "button_form pull-right" src='<?=Url::base() ?>/images/<?= $btn_continuar->image_desktop ?>' />
         
         <input type="hidden" id="action" name="action" value="CREATE"/>
+        <?php ActiveForm::end(); ?>
     </div>
     <div class="col-md-7 submit-container">
         <img class= "col-xs-5"src="<?= Url::base() ?>/images/<?= $principal_formulario->image_desktop ?>"/>
         <div class="form-group">
-
-            <input type="image" name="submit" value="" class= "button_form" src='<?=Url::base() ?>/images/<?= $btn_continuar->image_desktop ?>' />
+            <a  href="<?= Url::to(['site/awards']) ?>"><img class="btn_awardform" src="<?= Url::base() ?>/images/<?= $btn_premios->image_desktop ?>"/></a>    
         </div>
-
-        <?php ActiveForm::end(); ?>
     </div>
 </div>

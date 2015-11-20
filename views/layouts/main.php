@@ -59,9 +59,12 @@ AppAsset::register($this);
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <div class="container">
-            <img class="col-lg-5 col-md-5 col-sm-8" src="<?= Url::base() ?>/images/<?= $logo->image_desktop ?>"/>
+            <a href="<?= Url::to(['site/index']) ?>"><img class="col-lg-5 col-md-5 col-sm-8" src="<?= Url::base() ?>/images/<?= $logo->image_desktop ?>"/></a>
         
             <?= $content ?>
+            <div class="col-xs-12 center">
+                    <a href="#" target="_blank"> T&eacute;rminos y Condiciones </a>
+            </div>
         </div>
     </div>
 </div>

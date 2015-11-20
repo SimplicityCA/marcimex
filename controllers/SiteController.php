@@ -78,12 +78,13 @@ class SiteController extends Controller
         $principal_felicidades=SiteImages::find()->where(['name'=>'principal felicidades'])->one();
         $btn_volverjugar=SiteImages::find()->where(['name'=>'boton volver jugar'])->one();
         $content= SiteContents::find()->where(['name'=>'felicidades'])->one();
+        $content2= SiteContents::find()->where(['name'=>'felicidades2'])->one();
         $user=Users::find()->where(['id'=>$id])->one();
         $score=Scores::find()->where(['user_id'=>$user->id]) ->orderBy(['date'=>SORT_DESC])->one();
         $questions_aux=Questions::find()->count();
         $questions=Questions::find()->count();
         $sep=SiteImages::find()->where(['name'=>'separador'])->one();
-        return $this->render('finish',['content'=>$content,'user'=>$user,'questions'=>$questions,'score'=>$score,'sep'=>$sep,'principal_felicidades'=>$principal_felicidades,'btn_volverjugar'=>$btn_volverjugar]);
+        return $this->render('finish',['content'=>$content,'content2'=>$content2,'user'=>$user,'questions'=>$questions,'score'=>$score,'sep'=>$sep,'principal_felicidades'=>$principal_felicidades,'btn_volverjugar'=>$btn_volverjugar]);
     }
         public function actionAwards()
     {
@@ -96,7 +97,7 @@ class SiteController extends Controller
     public function actionUser(){
             $principal_formulario =SiteImages::find()->where(['name'=>'principal formulario'])->one();
             $btn_continuar=SiteImages::find()->where(['name'=>'boton continuar'])->one();
-
+            $btn_premios=SiteImages::find()->where(['name'=>'boton premios'])->one();
             $content= SiteContents::find()->where(['name'=>'formulario'])->one();
             //$background=SiteImages::find()->where(['name'=>'formulario'])->one();
              $model = new Users();
@@ -116,7 +117,7 @@ class SiteController extends Controller
       
         } else {
             return $this->render('user', [
-                'content'=>$content,'model' => $model, 'principal_formulario' => $principal_formulario,'btn_continuar'=>$btn_continuar
+                'content'=>$content,'model' => $model, 'principal_formulario' => $principal_formulario,'btn_continuar'=>$btn_continuar,'btn_premios'=>$btn_premios
             ]);
         }
     }
