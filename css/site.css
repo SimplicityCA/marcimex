@@ -1,0 +1,332 @@
+@font-face {
+    font-family: 'museo_slab300';
+    src: url('fonts/museoslab_300-webfont.eot');
+    src: url('fonts/museoslab_300-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/museoslab_300-webfont.woff2') format('woff2'),
+         url('fonts/museoslab_300-webfont.woff') format('woff'),
+         url('fonts/museoslab_300-webfont.ttf') format('truetype'),
+         url('fonts/museoslab_300-webfont.svg#museo_slab300') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+html,
+body {
+    height: 100%;
+    font-family: 'museo_slab300';
+}
+#yii-debug-toolbar {
+    display: none;
+}
+.wrap {
+    padding: 0 !important;
+}
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: /*"\e113"*/ "\e151";
+}
+
+a.desc:after {
+    content: /*"\e114"*/ "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view th {
+    white-space: nowrap;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+.center
+{ text-align:center;}
+
+.image_home{
+    margin-top: -14%;
+}
+
+.home_text{
+    color:white;
+    font-size:20px;
+}
+
+.home_inst{
+    margin-top:3%;
+}
+
+.btn_home{
+    margin-top:3%;
+}
+.congrats_text{
+    font-size:30px;
+    color:#3F2714;
+    font-weight: bold;
+}
+.score_text{
+    font-size:20px;
+    color:#3F2714;
+}
+.text_awards{
+    font-size:36px;
+    color:#3F2714;
+}
+
+.text_questions{
+    font-size:28px;
+    color:#3F2714;
+    
+}
+.question_container{
+    padding-right: 5%;
+    padding-left: 5%;
+    margin-top: 18%;
+    margin-bottom:3%;
+}
+.image_awards{
+    margin-top: 16%;
+    margin-bottom: 4%;
+}
+
+.div_awards
+{
+    margin-top:4%;
+}
+
+.start_awards{
+    margin-top:3%;
+}
+
+.form_text{
+    font-size: 26px;
+    padding-right: 14%;
+    padding-left: 14%;
+    color:#3A581B;
+    margin-top:16%;
+}
+.question_text{
+    font-size: 26px;
+    padding-right: 14%;
+    padding-left: 14%;
+    color:#3A581B;
+    margin-top:16%;
+}
+.btn_awardform{
+    margin-top:25%;
+}
+.button_form{
+    display: block;
+    background-size: 100%;
+    width: 35%;
+    height: 52px;
+    border: none;
+    background-repeat: no-repeat;
+    background: transparent;
+    margin-top:5%;
+    outline: none;
+}
+.question-images-container {
+        margin-top:2%;
+    }
+
+.form-group label { width:40%; float:left;}
+
+.input_sep{
+    margin-bottom:2%;
+}
+form#w0 label {
+    text-align: right;
+    padding-right: 15px;
+}
+.wrap.container-fluid {
+    background-size: cover;
+}
+.answer_container {
+        margin-top: 30px;
+        float: left;
+        padding: 0px 6%;
+        text-align: left;
+        color:white;
+        font-size:18px;
+    }
+@media (max-width: 1200px) {
+    .wrap .container-fluid {
+        /*max-height: 645px;*/
+    }
+    form#w0 label {
+        padding-right: 4px;
+    }
+}
+@media (max-width: 991px) {
+    .users-form {
+        text-align: center;
+    }
+    .submit-container {
+        margin-top: 63px;
+    }
+    .answer_container {
+        margin-top: 30px;
+        float: left;
+        padding: 0px 35%;
+        text-align: left;
+    }
+    .question_container {
+        float: left;
+        margin-top: 30px;
+    }
+    .question-images-container {
+        float: left;
+        margin-top:2%;
+    }
+    .user-form-text-container .form_text {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .button_form{
+        width:27%;
+    }
+}
+@media (max-width: 767px) {
+    .wrap .container {
+        text-align: center;
+    }
+    .main-desktop-image {
+        margin-top: 130px !important;
+    }
+    .body-content .row > div > div {
+        margin-top: 20px;
+    }
+    img.pull-right {
+        float: none ! important;
+    }
+    .submit-container input.button_form {
+        min-width: 100px;
+        height: auto;
+    }
+}
+@media (max-width: 630px) {  
+    .submit-container {
+        margin-top: 55px;
+    }
+}
+@media (max-width: 560px) {
+    .answer_container {
+        padding: 0px 30%;
+    } 
+    .submit-container {
+        margin-top: 74px;
+    }
+}
+@media (max-width: 480px) {
+    .main-desktop-image {
+        margin-top: 80px !important;
+    }
+    .submit-container {
+        margin-top: 70px;
+    }
+    .button_form{
+        width:37%;
+    }
+    .btn_awardform {
+        width: 42%;
+    }
+    form#w0 label,
+    form#w0 input[type=text] {
+        width: 100%;
+    }
+    form#w0 label {
+        text-align: left;
+    }
+}
+@media (max-width: 420px) {
+    .answer_container {
+        padding: 0px 25%;
+    }
+}
+@media (max-width: 370px) {
+    .answer_container {
+        padding: 0px 22%;
+    }
+}
+.container img {
+    max-width: 100%;
+}
+input.button_form {
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+form#w0 .next {
+    float: left;
+    margin-top: 20px;
+}
+input[type="radio"] {
+    margin-right: 8px !important;
+}
