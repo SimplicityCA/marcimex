@@ -67,7 +67,7 @@ $this->registerJs($script,View::POS_END);
         <?= $form->field($model, 'phone')->textInput(['maxlength' => true, 'class' => 'input_sep col-sm-7']) ?>
 
         <?= $form->field($model, 'city')->textInput(['maxlength' => true, 'class' => 'input_sep col-sm-7']) ?>
-        <input type="checkbox" name="terms" value="Terminos" required title="Acepta los T&eacute;rminos y Condiciones para continuar" /> Estoy de acuerdo con los <a href="<?= Url::to(['site/index']) ?>" target="_blank"> T&eacute;rminos y Condiciones </a>
+        <input type="checkbox" name="terms" value="Terminos" required title="Acepta los T&eacute;rminos y Condiciones para continuar" /> Estoy de acuerdo con los <a href="<?= Url::base() ?>/BasesyCondiciones_NavidadMarcimex.pdf" target="_blank"> T&eacute;rminos y Condiciones </a>
         <input type="image" name="submit" value="" class= "button_form pull-right" src='<?=Url::base() ?>/images/<?= $btn_continuar->image_desktop ?>' />
         
         <input type="hidden" id="action" name="action" value="CREATE"/>

@@ -19,7 +19,7 @@ $this->title = $content->name;
                     <a href="<?= Url::to(['site/user']) ?>"><img class="start_awards col-sm-5 pull-right" src="<?= Url::base() ?>/images/<?= $btn_empezar->image_desktop ?>"/></a>
                 </div>
                 <div class="col-sm-7">
-                    <img class="image_awards col-sm-10" src="<?= Url::base() ?>/images/<?= $premios->image_desktop ?>"/>
+                    <img class="image_awards col-sm-11" src="<?= Url::base() ?>/images/<?= $premios->image_desktop ?>"/>
                 </div>
             </div>
 

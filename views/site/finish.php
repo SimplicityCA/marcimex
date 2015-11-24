@@ -14,10 +14,10 @@ $this->title = $content->name;
             <div class="col-sm-12">
                 <div class="div_awards col-sm-5 center">
                     <img class="col-sm-12" src="<?= Url::base() ?>/images/<?= $sep->image_desktop ?>" />
-                    <p class="congrats_text" ><?= $content->content ?></p>
+                    <p class="congrats_text" ><?= $score->score>0?$content->content:"" ?></p>
                     <!-- <p><?= $user->name ?></p> -->
                     <p class="score_text">Acertaste <?=$score->score ?> de <?=$questions?></p>
-                    <p class="score_text"><?= $content2->content ?></p>
+                    <p class="score_text"><?= $score->score>0?$content2->content:"" ?></p>
                     <img class="col-sm-12" src="<?= Url::base() ?>/images/<?= $sep->image_desktop ?>" />
                     <a href="<?= Url::to(['site/user']) ?>"><img class="start_awards col-sm-5 pull-right" src="<?= Url::base() ?>/images/<?= $btn_volverjugar->image_desktop ?>"/></a>
                 </div>
